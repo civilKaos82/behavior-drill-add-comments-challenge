@@ -4,12 +4,12 @@
   <link rel="stylesheet" type="text/css" href="main.css">
   <title>Add Comments</title>
 </head>
-<body>
-  <header>
-    <h1>Neque Porro Quisquam</h1>
+<body class="dark">
+  <header class="center light">
+    <h1 class="gray">Neque Porro Quisquam</h1>
   </header>
   <main role="main">
-    <article>
+    <article class="container">
       <h2>Est Qui Dolorem Ipsum</h2>
       <p>
         Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
@@ -21,10 +21,7 @@
         tempor ultrices felis. Pellentesque ac interdum ipsum, non laoreet ipsum.
         Donec consectetur libero in odio sagittis dignissim. Donec tincidunt sapien
         ac diam cursus porttitor. Nunc aliquet nulla quis sagittis consectetur. Etiam
-        at orci ac dui commodo dictum. Etiam congue blandit mauris aliquet auctor.
-        Aliquam ac lorem at ex semper interdum sed vitae elit. Etiam nec ante ut quam
-        tincidunt aliquam. Nullam eu quam quis elit finibus vehicula. Vestibulum
-        mattis sodales leo et malesuada.
+        at orci ac dui commodo dictum.
       </p>
       <p>
         Nam ultricies nulla magna, quis iaculis nisi lacinia non. Duis malesuada
@@ -35,10 +32,10 @@
         ultrices, scelerisque et ante. Quisque eget sem in massa laoreet fringilla
         eget in erat.
       </p>
-      <section>
+      <section class="comments">
         <h3>Comments</h3>
         <ul id="comment_list">
-          <li>
+          <li class="comment">
             <article>
               <p>
                 Nam ultricies nulla magna, quis iaculis nisi lacinia non. Duis malesuada
@@ -49,14 +46,40 @@
               <span class="author">Agrippina Julia</span>
             </article>
           </li>
+          <li class="comment">
+            <article>
+              <p>
+                Sociis natoque penatibus et magnis dis parturient montes, nascetur
+                ridiculus mus. Curabitur ut mi ex. Vestibulum sed eleifend tellus. Cras
+                facilisis quam nec nisl aliquet, in vehicula quam faucibus. Nulla tincidunt
+                facilisis ipsum, id pulvinar augue ullamcorper in. Mauris volutpat tempus
+                odio non consequat. Curabitur vel ligula ac ipsum laoreet tincidunt. Nulla
+                sodales tristique nisi ac congue. Integer condimentum egestas mi, semper
+                pretium massa aliquet ut.
+              </p>
+              <span class="author">Gratiana Faustus</span>
+            </article>
+          </li>
+          <li class="comment">
+            <article>
+              <p>
+                In ante diam, ultrices at leo vitae, viverra congue sem. Phasellus nulla ex,
+                vestibulum non semper laoreet, varius vitae nunc. Integer hendrerit sit amet
+                nisi ut fermentum. Ut sapien nisl, pulvinar in aliquam ultricies, consectetur
+                eget ex. Fusce at neque quis dui consequat ultrices eget eget sapien. Cras
+                dolor arcu, consectetur vel augue at, vestibulum ultricies velit.
+              </p>
+              <span class="author">Laurentinus Aquilinus</span>
+            </article>
+          </li>
         </ul>
-        <button id="new_comment_button">New Comment</button>
-        <form id="new_comment_form">
+        <button id="new_comment_button" class="button center">New Comment</button>
+        <form id="new_comment_form" class="center">
           <label for="comment_text">Comment:</label>
           <textarea id="comment_text"></textarea>
           <label for="commenter_name">Name:</label>
           <input type="text" id="commenter_name"></input>
-          <input type="submit" value="Submit Comment"></input>
+          <input type="submit" class="button" value="Submit Comment"></input>
         </form>
       </section>
     </article>
