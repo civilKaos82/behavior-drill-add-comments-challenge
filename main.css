@@ -144,6 +144,10 @@ textarea {
   color: #efefef;
 }
 
+.hidden {
+  display: none;
+}
+
 .light {
   background-color: white;
   color: #19ABB5;
