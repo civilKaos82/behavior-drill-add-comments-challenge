@@ -33,7 +33,7 @@ Edit only the JavaScript (`comments.js`).  All of the HTML and CSS is provided. 
   - the form should be hidden.
   - the *New Comment* button should reappear.
 
-Be sure to follow the specifications and remember to take it slow.  Test the code frequently and make small iterations.  Be conscious of any tendency to write procedural code and write elegant, object-oriented JavaScript.
+Be sure to follow the specifications and remember to take it slow.  Test the code frequently, make small iterations, and write elegant code.
 
 
 ### Release 1: Handle Empty Form Fields
