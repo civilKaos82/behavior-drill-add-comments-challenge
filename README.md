@@ -10,8 +10,10 @@ We have a webpage that displays an article and a few user comments.  We want use
 *Note:* Normally, when users submit comments, we want to persist the data in a database. We're going to bypass that feature in order to focus on handling events and updating the DOM.
 
 
-### Helpful Resources
-This is one of the more complex behavior drills.  There are a few different moving parts we need to coordinate.  These links should be useful in helping to complete this challenge.
+### Helpful jQuery Resources
+This is one of the more complex behavior drills.  There are a few different moving parts we need to coordinate.  We'll rely on a JavaScript library to help us.  The library is [jQuery][].  Browsers do not come with jQuery.  We need to load the jQuery library to our site as we would any other script.
+
+These links should be useful in helping to complete this challenge.
 
 - [jQuery Event Basics][]
 - [Handling Events][] (e.g., a form `"submit"` event)
@@ -52,5 +54,6 @@ Handling events and manipulating the DOM are crucial JavaScript skills.  Are we 
 [.val()]: http://api.jquery.com/val/
 [event.preventDefault()]: http://api.jquery.com/event.preventDefault/
 [Handling Events]: http://learn.jquery.com/events/handling-events/
+[jquery]: https://jquery.com/
 [jQuery Event Basics]: http://learn.jquery.com/events/event-basics/
 
