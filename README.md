@@ -11,7 +11,7 @@ We have a webpage that displays an article and a few user comments.  We want use
 
 
 ### Helpful jQuery Resources
-This is one of the more complex behavior drills.  There are a few different moving parts we need to coordinate.  We'll rely on a JavaScript library to help us.  The library is [jQuery][].  Browsers do not come with jQuery.  We need to load the jQuery library to our site as we would any other script.
+This is one of the more complex behavior drills.  There are a few different moving parts we need to coordinate.  We'll rely on a JavaScript library to help us.  The library is [jQuery][].
 
 These links should be useful in helping to complete this challenge.
 
