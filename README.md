@@ -24,7 +24,7 @@ These links should be useful in helping to complete this challenge.
 
 ## Releases
 ### Release 0: Implement Adding Comments
-Edit only the JavaScript (`comments.js`).  All of the HTML and CSS is provided.  Implement the behavior in Figure 1:
+Edit only the JavaScript (`application.js`).  All of the HTML and CSS is provided.  Implement the behavior in Figure 1:
 
 - When the user clicks the *New Comment* button, 
   - the button is hidden.
