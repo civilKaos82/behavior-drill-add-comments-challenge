@@ -37,6 +37,7 @@ We'll do the vast majority of our work in the JavaScript file `application.js`. 
 
 Be sure to follow the specifications and remember to take it slow.  Test the code frequently, make small iterations, and write elegant code.
 
+Don't worry about deleting comments until Release 2.
 
 ### Release 1: Handle Empty Form Fields
 What happens if a user submits the form without adding any data in the form fields?  We just add empty comments to the comment list.  Let's update the comment-adding behavior to control for missing content:
@@ -44,6 +45,15 @@ What happens if a user submits the form without adding any data in the form fiel
 - Prevent empty comments from appearing in the comment list.  When a user submits the form, only append the new comment if the user has entered some text into the form's text area.
 - Allow anonymous comments.  If a user submits the form without providing a name, attribute the comment to *Anonymous*.
 
+### Release 2: Deleting Comments
+
+The "Delete Comment" button is currently not functional. It'll be up to you to make it work.
+
+When a "Delete Comment" button is clicked, that comment should be removed from the DOM (thus removing it from the page).
+
+The "Delete Comment" button needs to work both for the existing comments, as well as any comments we add via our comment form in the future. Be sure to test both.
+
+You may want to revist the jQuery page about [Handling Events][], including the section on binding elements that will be rendered in the future.
 
 ## Conclusion
 Handling events and manipulating the DOM are crucial JavaScript skills.  Are we confident in our understanding of how to listen for events?  What about how to handle events?  How to pull data from the DOM?  How to update the DOM?  Get clarity around these issues.
