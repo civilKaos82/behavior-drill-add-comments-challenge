@@ -37,7 +37,7 @@ We'll do the vast majority of our work in the JavaScript file `application.js`. 
 
 Be sure to follow the specifications and remember to take it slow.  Test the code frequently, make small iterations, and write elegant code.
 
-Don't worry about deleting comments until Release 2.
+_Note:_ Don't worry about deleting comments until Release 2.
 
 ### Release 1: Handle Empty Form Fields
 What happens if a user submits the form without adding any data in the form fields?  We just add empty comments to the comment list.  Let's update the comment-adding behavior to control for missing content:
