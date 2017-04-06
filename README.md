@@ -26,7 +26,7 @@ These links should be useful in helping to complete this challenge.
 ### Release 0: Implement Adding Comments
 We'll do the vast majority of our work in the JavaScript file `application.js`.  HTML is provided in the file `index.html`; don't modify anything inside the `<body>` tag. CSS is also provided, and should not be modified.  Implement the behavior in Figure 1:
 
-- When the user clicks the *New Comment* button, 
+- When the user clicks the *New Comment* button,
   - the button is hidden.
   - the comment form appears.
 - When the user submits the form,
@@ -55,6 +55,26 @@ The "Delete Comment" button needs to work both for the existing comments, as wel
 
 You may want to revist the jQuery page about [Handling Events][], including the section on binding elements that will be rendered in the future.
 
+### Release 3: Sanitizing input
+
+Whoo! Your comment section works and is ready for real users. But now you get a report from your boss that she can't add a comment with the text "I think this article is <awesome>"
+
+What happens when you try this in your application? Why do you think this is? Now, what happens if you try to insert this string as a comment into your article?
+  
+```<script type="text/javascript">$(document.body).html("In your article, deleting your posts")</script>```
+
+This is another example of an injection attack. It's very similar to the SQL injection attack you learned about in phase 1. If you remember, your SQL code looked something like `SELECT * from Users where id = #{user_id}`. By using string interpolation, the database didn't know the difference between the sql command and the data from the user.
+
+Similarly, for javascript, when you have code that looks like this:
+```
+var comment = $('#comment_text').val();
+$('#new_comment_form').html("<li class='comment'><article><p>" + comment + "</p></article>");
+```
+
+The pattern is similar. We are taking user input (in this case stored as comment), using string interpolation, and then passing that to the [$.html()](https://api.jquery.com/html/) function. One way to solve this is to use the [$.text()](https://api.jquery.com/text/) method. When you use .text it is saying to treat whatever is passed in as plain text, not html.
+
+To pass this release, modify your code to prevent HTML injection attacks.
+
 ## Conclusion
 Handling events and manipulating the DOM are crucial JavaScript skills.  Are we confident in our understanding of how to listen for events?  What about how to handle events?  How to pull data from the DOM?  How to update the DOM?  Get clarity around these issues.
 
@@ -66,4 +86,3 @@ Handling events and manipulating the DOM are crucial JavaScript skills.  Are we 
 [Handling Events]: http://learn.jquery.com/events/handling-events/
 [jquery]: https://jquery.com/
 [jQuery Event Basics]: http://learn.jquery.com/events/event-basics/
-
