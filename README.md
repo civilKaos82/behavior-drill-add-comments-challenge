@@ -73,9 +73,9 @@ $('#new_comment_form').html("<li class='comment'><article><p>" + comment + "</p>
 
 The pattern is similar. We are taking user input (in this case stored as comment), using string interpolation, and then passing that to the [$.html()](https://api.jquery.com/html/) function. .html() interprets the _entire_ string as HTML and doesn't know that _parts_ of the input should be strictly treated as plain text.
 
-This type of injection attack is something called a [Cross-site-scripting (XSS) attack](https://excess-xss.com/). One way to solve this is to use the [$.text()](https://api.jquery.com/text/) method. When you use .text it is saying to treat whatever is passed in as plain text, not html.
+This type of injection attack is something called a [Cross-site-scripting (XSS) attack](https://excess-xss.com/). One way to solve this is to use the [$.text()](https://api.jquery.com/text/) method. When you use .text it is saying to treat whatever is passed in as plain text, not html. [More reading](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
 
-To pass this release, modify your code to prevent HTML injection attacks.
+To pass this release, modify the website to prevent HTML injection attacks.
 
 ## Conclusion
 Handling events and manipulating the DOM are crucial JavaScript skills.  Are we confident in our understanding of how to listen for events?  What about how to handle events?  How to pull data from the DOM?  How to update the DOM?  Get clarity around these issues.
@@ -88,4 +88,4 @@ Handling events and manipulating the DOM are crucial JavaScript skills.  Are we 
 [Handling Events]: http://learn.jquery.com/events/handling-events/
 [jquery]: https://jquery.com/
 [jQuery Event Basics]: http://learn.jquery.com/events/event-basics/
-[Cheat sheet to prevent XSS attacks]: https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+[Cheat sheet to prevent XSS attacks]:
