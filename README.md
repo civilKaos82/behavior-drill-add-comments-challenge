@@ -57,21 +57,23 @@ You may want to revist the jQuery page about [Handling Events][], including the 
 
 ### Release 3: Sanitizing input
 
-Whoo! Your comment section works and is ready for real users. But now you get a report from your boss that she can't add a comment with the text "I think this article is <awesome>"
+Yay! The comment section works and is ready for real users. After the release goes out, we received a report saying that if a comment is enclosed in &lt;angle brackets&gt;, then the comment seems to disappear. Try copy/pasting the below line as a comment into our website.
 
-What happens when you try this in your application? Why do you think this is? Now, what happens if you try to insert this string as a comment into your article?
-  
-```<script type="text/javascript">$(document.body).html("In your article, deleting your posts")</script>```
+```<script type="text/javascript">alert("A malicious user can execute JavaScript through this form")</script>```
 
-This is another example of an injection attack. It's very similar to the SQL injection attack you learned about in phase 1. If you remember, your SQL code looked something like `SELECT * from Users where id = #{user_id}`. By using string interpolation, the database didn't know the difference between the sql command and the data from the user.
+What happens when you hit submit? We expected this to be a new comment, but the string has been interpreted (and executed!) as HTML instead.
 
-Similarly, for javascript, when you have code that looks like this:
+This is an example of an [injection attack](https://www.owasp.org/index.php/Injection_Theory). It's very similar to the SQL injection attack you learned about in phase 1. If you remember, our SQL code looked something like `SELECT * from Users where id = #{user_id}`. By using string interpolation, the database didn't know the difference between the sql command and the data from the user.
+
+Similarly, for javascript, when we have code that looks like this:
 ```
 var comment = $('#comment_text').val();
 $('#new_comment_form').html("<li class='comment'><article><p>" + comment + "</p></article>");
 ```
 
-The pattern is similar. We are taking user input (in this case stored as comment), using string interpolation, and then passing that to the [$.html()](https://api.jquery.com/html/) function. One way to solve this is to use the [$.text()](https://api.jquery.com/text/) method. When you use .text it is saying to treat whatever is passed in as plain text, not html.
+The pattern is similar. We are taking user input (in this case stored as comment), using string interpolation, and then passing that to the [$.html()](https://api.jquery.com/html/) function. .html() interprets the _entire_ string as HTML and doesn't know that _parts_ of the input should be strictly treated as plain text.
+
+This type of injection attack is something called a [Cross-site-scripting (XSS) attack](https://excess-xss.com/). One way to solve this is to use the [$.text()](https://api.jquery.com/text/) method. When you use .text it is saying to treat whatever is passed in as plain text, not html.
 
 To pass this release, modify your code to prevent HTML injection attacks.
 
@@ -86,3 +88,4 @@ Handling events and manipulating the DOM are crucial JavaScript skills.  Are we 
 [Handling Events]: http://learn.jquery.com/events/handling-events/
 [jquery]: https://jquery.com/
 [jQuery Event Basics]: http://learn.jquery.com/events/event-basics/
+[Cheat sheet to prevent XSS attacks]: https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
