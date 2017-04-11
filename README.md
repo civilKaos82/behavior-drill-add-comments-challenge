@@ -57,11 +57,16 @@ You may want to revist the jQuery page about [Handling Events][], including the 
 
 ### Release 3: Sanitizing input
 
-Yay! The comment section works and is ready for real users. After the release goes out, we received a report saying that if a comment is enclosed in &lt;angle brackets&gt;, then the comment seems to disappear. Try copy/pasting the below line as a comment into our website.
+Yay! The comment section works and is ready for real users. After the release goes out, we received a report saying that if a comment is enclosed in &lt;angle brackets&gt;, then the comment seems to disappear. Try typing &lt;awesome&gt; into the comment field, and verify that the text doesn't display. What happens when you type &lt;awesome&gt; into the comment field and hit submit? We can find out by opening up the developer tools, pressing ⌘-f, and then searching for `awesome`
+
+![finding awesome](readme-assets/awesome.gif)  
+*Figure 1*.  Demonstration of looking for the awesome tag.
+
+We expected there to be a new comment (as just text), but the string has been interpreted as HTML instead. The browser saw the angle brackets and said "that looks like a new HTML tag", and so it created it. It just didn't know how to display &lt;awesome&gt; because that's not a real tag, so it vanishes. What are some other unexpected behaviors a user could cause given that their input is treated as HTML? Try inserting other tags into the comment field (such as `<h1>big comment</h1>`.
+
+This is not only annoying, but it also a possible security vulnerability. Try copy/paste the below line in as a comment into our website:
 
 ```<script type="text/javascript">alert("A malicious user can execute JavaScript through this form")</script>```
-
-What happens when you hit submit? We expected this to be a new comment, but the string has been interpreted (and executed!) as HTML instead.
 
 This is an example of an [injection attack](https://www.owasp.org/index.php/Injection_Theory). It's very similar to the SQL injection attack you learned about in phase 1. If you remember, our SQL code looked something like `SELECT * from Users where id = #{user_id}`. By using string interpolation, the database didn't know the difference between the sql command and the data from the user.
 
@@ -73,7 +78,7 @@ $('#new_comment_form').html("<li class='comment'><article><p>" + comment + "</p>
 
 The pattern is similar. We are taking user input (in this case stored as comment), using string interpolation, and then passing that to the [$.html()](https://api.jquery.com/html/) function. .html() interprets the _entire_ string as HTML and doesn't know that _parts_ of the input should be strictly treated as plain text.
 
-This type of injection attack is something called a [Cross-site-scripting (XSS) attack](https://excess-xss.com/). One way to solve this is to use the [$.text()](https://api.jquery.com/text/) method. When you use .text it is saying to treat whatever is passed in as plain text, not html. [More reading](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)
+This type of injection attack is something called a [Cross-site-scripting (XSS) attack](https://excess-xss.com/). One way to solve this is to use the [$.text()](https://api.jquery.com/text/) method. When you use .text it is saying to treat whatever is passed in as plain text, not html. The [excess-xss](https://excess-xss.com/#xss-prevention) site has information on strategies for preventing XSS and there's also a cheat sheet [here](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet), for future reference.
 
 To pass this release, modify the website to prevent HTML injection attacks.
 
